@@ -1,0 +1,86 @@
+*{
+  transition: all 0.2s ease-in-out;
+}
+
+:root{
+  --bgColor: #161616;
+  --fontColor: #ececec;
+  --accentColor: #352386;
+
+  background-color: var(--bgColor);
+  color: var(--fontColor);
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.app{
+  width: 100vw;
+  height: 100vh;
+}
+
+/***** NAVBAR SECTION *****/
+.navBar{
+  margin: 0px;
+  margin-bottom: 20px;
+  padding: 5px 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-flow: row nowrap;
+}
+
+.navBarMainBtns{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: row nowrap;
+  gap: 25px;
+}
+
+.navBar > h3:hover,
+.navBarMainBtns > h3:hover{
+  transform: translateY(-3px);
+  filter: drop-shadow(0 6px 1px var(--accentColor));
+}
+
+.btnThemeSelect{
+  background-color: inherit;
+  color: inherit;
+  border: none;
+}
+
+
+/***** TITLE SECTION *****/
+.titleSection{
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+
+  gap: 50px;
+
+  text-align: center;
+}
+
+.titleSection > *{
+  user-select: none;
+}
+
+.titleHeader{
+  font-size: 96px;
+  line-height: 86px;
+  margin: 0px;
+  filter: drop-shadow(0 0 1rem var(--accentColor));
+}
+
+.titleDesc{
+  font-size: 26px;
+  margin: 0px;
+  border: none;
+  border-bottom: 2px solid var(--accentColor);
+}
