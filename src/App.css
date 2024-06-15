@@ -23,6 +23,27 @@ a{
   height: 100vh;
 }
 
+.flex{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.row{
+  flex-flow: row nowrap;
+}
+
+.column{
+  flex-flow: column nowrap;
+}
+
+.line{
+  border: 1px solid var(--accentColor);
+  width: 60%;
+  min-width: 100px;
+  margin-top: 25px;
+}
+
 /***** NAVBAR SECTION *****/
 .navBar{
   margin: 0px;
@@ -49,10 +70,14 @@ a{
   filter: drop-shadow(0 4px 1px var(--accentColor));
 }
 
+button,
 .btnThemeSelect{
   background-color: inherit;
+  border-radius: 20px;
+  border: 2px solid var(--accentColor);
   color: inherit;
-  border: none;
+  padding: 5px;
+  margin-bottom: 2px;
 }
 
 /***** TITLE SECTION *****/
@@ -72,10 +97,11 @@ a{
 }
 
 .titleHeader{
-  font-size: 96px;
+  font-size: 64px;
   line-height: 86px;
   margin: 0px;
   filter: drop-shadow(0 0 1rem var(--accentColor));
+  min-width: 80vw;
 }
 
 .titleDesc{
@@ -83,6 +109,7 @@ a{
   margin: 0px;
   border: none;
   border-bottom: 2px solid var(--accentColor);
+  max-width: 80vw;
 }
 
 .tooltip{
@@ -121,24 +148,48 @@ a{
   align-items: center;
   justify-content: center;
   flex-flow: column nowrap;
-  padding: 20px;
-}
-
-.userForm > *{
-  padding: 5px;
-  border-radius: 25px;
-  border: none;
-  margin-bottom: 5px;
-
-  color: var(--fontColor);
-  background-color: var(--bgColor);
 }
 
 .userForm > input{
+  padding: 5px;
+  border-radius: 20px;
+  margin-bottom: 5px;
+
+  border: none;
+  color: var(--fontColor);
+  background-color: var(--bgColor);
   border: 2px solid var(--accentColor);  
 }
 
+button:hover,
 .userForm > .btn:hover{
   background-color: var(--accentColor);
   border-radius: 5px;
+}
+
+.loginContainer{
+  text-align: center;
+  position: relative;
+}
+
+.sign{
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.hide{
+  transform: translateX(-150%);
+  opacity: 0;
+}
+
+.show{
+  transform: translateX(-50%);
+  opacity: 1;
+}
+
+.otherOption{
+  position: absolute;
+  transform: translateY(250%);
 }

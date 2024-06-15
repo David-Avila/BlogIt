@@ -1,17 +1,27 @@
+import { useState } from 'react'
 import '../../App.css'
-import { LoginForm } from './LoginForm'
+import { SignInForm } from './SignInForm'
+import { SignUpForm } from './SignUpForm'
 
-export function UserLogin(){
+export function UserLogin({setLogged}){
+    const [mode, setMode] = useState(false);
 
-    function logIn(){
-
-    }
-
-    function register(){
-        
+    function handleChange(){
+        setMode(prev => prev = !prev);
     }
 
     return (
-        <LoginForm />
+        <div className='loginContainer flex column'>
+            <SignInForm mode={mode} />
+            <SignUpForm mode={mode} />
+
+            <div className='otherOption'>
+                <div className='line'/>
+                <h4>or</h4>
+                <button onClick={handleChange}>
+                    {mode ? "Sign Up" : "Sign In"}
+                </button>
+            </div>
+        </div>
     )
 }
