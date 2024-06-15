@@ -6,22 +6,20 @@ import { ContentContext } from '../ContentProvider'
 export function TitleSection(){
     const content = useContext(ContentContext);    
 
-    switch (content.mainData.displayMode){
-        case "home":
+    switch (content.displayMode){
+        case "Blog":
             return (
                 <section className='titleSection'>
-                    <h1 className='titleHeader'>{content.mainData.title}</h1>
-                    <p className='titleDesc'>{content.mainData.description}</p>
-                </section>
-            )
-        case "blog":
-            return (
-                <section className='titleSection'>
-                    <h1 className='titleHeader'>{content.blogData.title}</h1>
-                    <p className='titleDesc'>{content.blogData.description}</p>
+                    <h1 className='titleHeader'>{content.currentBlog.title}</h1>
+                    <p className='titleDesc'>{content.currentBlog.description}</p>
                 </section>
             )
         default:
-            return <h1>Error: No data found for {content.mainData.displayMode}</h1>
+            return (
+                <section className='titleSection'>
+                    <h1 className='titleHeader'>{content.appData.title}</h1>
+                    <p className='titleDesc'>{content.appData.description}</p>
+                </section>
+            )
     }
 }

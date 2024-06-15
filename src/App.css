@@ -15,6 +15,7 @@ a{
   text-decoration: none;
   color: inherit;
   cursor: pointer;
+  position: relative;
 }
 
 .app{
@@ -44,8 +45,8 @@ a{
 
 .navBar > h3:hover,
 .navBarMainBtns > h3:hover{
-  transform: translateY(-3px);
-  filter: drop-shadow(0 6px 1px var(--accentColor));
+  transform: translateY(-4px);
+  filter: drop-shadow(0 4px 1px var(--accentColor));
 }
 
 .btnThemeSelect{
@@ -53,7 +54,6 @@ a{
   color: inherit;
   border: none;
 }
-
 
 /***** TITLE SECTION *****/
 .titleSection{
@@ -83,4 +83,62 @@ a{
   margin: 0px;
   border: none;
   border-bottom: 2px solid var(--accentColor);
+}
+
+.tooltip{
+  font-size: xx-small;
+  max-width: fit-content;
+  padding: 5px;
+  border: 1px solid inherit;
+  background-color: inherit;
+  border-radius: 5px;
+
+  position: absolute;
+  z-index: 1;
+  top: 0%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  line-height: normal;
+  text-align: center;
+}
+
+.shown{
+  opacity: 1;
+  top: 40%;
+  pointer-events: auto;
+}
+
+.hidden{
+  opacity: 0;
+  top: 0%;
+  pointer-events: none;
+}
+
+/***** USER SECTION *****/
+.userForm{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column nowrap;
+  padding: 20px;
+}
+
+.userForm > *{
+  padding: 5px;
+  border-radius: 25px;
+  border: none;
+  margin-bottom: 5px;
+
+  color: var(--fontColor);
+  background-color: var(--bgColor);
+}
+
+.userForm > input{
+  border: 2px solid var(--accentColor);  
+}
+
+.userForm > .btn:hover{
+  background-color: var(--accentColor);
+  border-radius: 5px;
 }

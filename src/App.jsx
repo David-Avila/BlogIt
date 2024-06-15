@@ -6,14 +6,13 @@ import { ContentProvider } from './Components/ContentProvider'
 import { useState } from 'react'
 
 function App() {
-	const [displayMode, setDisplayMode] = useState("home");
+	const [displayMode, setDisplayMode] = useState("Home");
 	const [currentBlog, setCurrentBlog] = useState();
-
-	const appData = {
+	const [currentUser, setCurrentUser] = useState();
+	const [appData, setAppData] = useState({
 		title: "Blog It",
 		description: "Make your dream blog real",
-		displayMode,
-	}
+	});
 
 	function setBlog(blog){
 		if (blog){
@@ -27,13 +26,29 @@ function App() {
 		}
 	}
 
+	function setUser(user){
+		if (user){
+			setCurrentUser(user)
+		}
+	}
+
+	function setData(data){
+		if (data){
+			setAppData(data);
+		}
+	}
+
     return (
         <ContentProvider className='app' 
 		data={{
-			mainData: appData,
-			blogData: currentBlog,
-			setBlog: setBlog,
-			setMode: setMode,
+			appData,
+			currentUser,
+			currentBlog,
+			displayMode,
+			setBlog,
+			setMode,
+			setUser,
+			setData,
 		}}
 		>
             <NavBar/>
