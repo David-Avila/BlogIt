@@ -9,13 +9,14 @@ function App() {
 	const [displayMode, setDisplayMode] = useState("Home");
 	const [currentBlog, setCurrentBlog] = useState();
 	const [currentUser, setCurrentUser] = useState();
+	const [previusMode, setPreviusMode] = useState("Home");
 	const [appData, setAppData] = useState({
-		title: "Blog It",
+		title: "BlogIt",
 		description: "Make your dream blog real",
 	});
 
 	const defaultAppData = {
-		title: "Blog It",
+		title: "BlogIt",
 		description: "Make your dream blog real",
 	}
 
@@ -27,6 +28,7 @@ function App() {
 
 	function setMode(mode){
 		if (mode){
+			setPreviusMode(displayMode);
 			setDisplayMode(mode);
 		}
 	}
@@ -54,6 +56,7 @@ function App() {
 			currentUser,
 			currentBlog,
 			displayMode,
+			previusMode,
 			setBlog,
 			setMode,
 			setUser,

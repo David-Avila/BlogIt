@@ -2,28 +2,26 @@ import '../../App.css'
 import { ContentContext } from '../ContentProvider'
 import { useContext } from 'react'
 import sb from '../../../Private/SupabaseClient'
-import { v4 as uuidv4 } from 'uuid'
 
-export function CreateBlogSection(){
+export function CreateArticleSection(){
     const content = useContext(ContentContext);
 
-    function saveBlog(e){
+    function saveArticle(e){
         e.preventDefault();
 
-        const newBlog = {
+        const newArticle = {
             title: e.target.title.value,
-            description: e.target.description.value,
-            blog_id: uuidv4(),
+            content: e.target.content.value,
+            blog_id: content.currentBlog.blog_id,
             private: e.target.private.checked,
-            author: content.currentUser.username,
         }
 
         // Check if blog title already exists
         const checkTitle = async () => {
             const { data, error} = await sb
-                .from("Blogs")
+                .from("Articles")
                 .select("*")
-                .eq("title", newBlog.title)
+                .eq("title", newArticle.title)
 
             if (error){
                 alert(error);
@@ -37,17 +35,15 @@ export function CreateBlogSection(){
         checkTitle()
         .then(res => {
             if (res == undefined || res.length === 0){
-                //Add new blog
 
                 const add = async () => {
                     const {data, error} = await sb
-                        .from("Blogs")
+                        .from("Articles")
                         .insert({
-                            title: newBlog.title,
-                            description: newBlog.description,
-                            blog_id: newBlog.blog_id,
-                            author: newBlog.author,
-                            private: newBlog.private,
+                            title: newArticle.title,
+                            content: newArticle.content,
+                            blog_id: newArticle.blog_id,
+                            private: newArticle.private,
                         })
 
                     if (error){
@@ -62,7 +58,7 @@ export function CreateBlogSection(){
 
             }
             else {
-                alert("Blog already exists");
+                alert("Article already exists");
             }
         })
     }
@@ -72,12 +68,12 @@ export function CreateBlogSection(){
     }
 
     return (
-        <form onSubmit={saveBlog} className='userForm'>
-            <label htmlFor="title">Blog Title:</label>
+        <form onSubmit={saveArticle} className='userForm'>
+            <label htmlFor="title">Article Title:</label>
             <input type="text" name='title'/>
-            <label htmlFor="description">Add a short description of the blog:</label>
-            <input type="text" name='description'/>
-            <label htmlFor="private">Private Blog:</label>
+            <label htmlFor="content">Add a short description of the blog:</label>
+            <textarea name="content"></textarea>
+            <label htmlFor="private">Private Article:</label>
             <input type="checkbox" name="private" />
             <input className='btn' type="submit" value="Save" />
             <button onClick={cancelCreation}>Cancel</button>

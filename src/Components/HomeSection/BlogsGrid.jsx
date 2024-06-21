@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react"
 import { BlogPreview } from "./BlogPreview";
 import sb from '../../../Private/SupabaseClient'
-import {v4 as uuidv4} from 'uuid'
 import { ContentContext } from "../ContentProvider";
 
 export function BlogsGrid(){

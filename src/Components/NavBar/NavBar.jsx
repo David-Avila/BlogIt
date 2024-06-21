@@ -13,17 +13,14 @@ export function NavBar(){
     const iconSize = 22;
 
     function btnHomeClicked(){
-        content.setData({
-            title: "Blog It",
-            description: "Make your dream  blog real",
-        })
+        content.setDefaultData();
         content.setMode("Home");
     }
 
     function btnAboutClick(){
         content.setData({
             title: "About",
-            description: "What is Blog It?",
+            description: "What is BlogIt?",
         })
         content.setMode("About");
     }

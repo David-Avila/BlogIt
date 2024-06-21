@@ -1,9 +1,13 @@
 import '../../App.css'
+import { ContentContext } from '../ContentProvider'
+import { useContext } from 'react'
 
 export function BlogPreview({data, owner, deleteBlog}){
+    const content = useContext(ContentContext);
 
     function openBlog() {
-        console.log(data);
+        content.setMode("Blog");
+        content.setBlog(data);
     }
 
     return (
