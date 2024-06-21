@@ -14,6 +14,11 @@ function App() {
 		description: "Make your dream blog real",
 	});
 
+	const defaultAppData = {
+		title: "Blog It",
+		description: "Make your dream blog real",
+	}
+
 	function setBlog(blog){
 		if (blog){
 			setCurrentBlog(blog);
@@ -38,6 +43,10 @@ function App() {
 		}
 	}
 
+	function setDefaultData(){
+		setAppData(defaultAppData);
+	}
+
     return (
         <ContentProvider className='app' 
 		data={{
@@ -49,6 +58,7 @@ function App() {
 			setMode,
 			setUser,
 			setData,
+			setDefaultData,
 		}}
 		>
             <NavBar/>
