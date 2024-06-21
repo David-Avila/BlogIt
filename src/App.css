@@ -168,7 +168,7 @@ button:hover,
 
 .loginContainer{
   text-align: center;
-  height: min(60vh, 250px);
+  height: 250px;
   position: relative;
 }
 
@@ -193,4 +193,20 @@ button:hover,
   position: absolute;
   bottom: 0%;
   translate: 0 100%;
+}
+
+.userConfig{
+  text-align: center;
+}
+
+.blogsGrid{
+  padding: 10px;
+}
+
+.blogPreview{
+  width: 250px;
+  min-width: 250px;
+  height: 120px;
+  padding: 15px;
+  border-radius: 25px;
 }
