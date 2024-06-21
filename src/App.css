@@ -2,6 +2,7 @@
   --bgColor: #161616;
   --fontColor: #ececec;
   --accentColor: #352386;
+  --dangerColor: #d33d2a;
 
   background-color: var(--bgColor);
   color: var(--fontColor);
@@ -46,6 +47,7 @@ a{
 .no-select{
   user-select: none;
 }
+
 
 /***** NAVBAR SECTION *****/
 .navBar{
@@ -222,4 +224,16 @@ button:hover,
 
 .blogPreview:hover{
   border: 2px solid color-mix(in srgb, var(--bgColor) 20%, var(--fontColor) 80%);
+}
+
+.danger{
+  background: var(--dangerColor);
+  border-color: red;
+  color: var(--bgColor);
+  font-weight: 900;
+}
+
+.danger:hover{
+  background: var(--dangerColor);
+  border-color: red;
 }

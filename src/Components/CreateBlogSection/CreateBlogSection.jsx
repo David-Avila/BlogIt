@@ -14,6 +14,7 @@ export function CreateBlogSection(){
             title: e.target.title.value,
             description: e.target.description.value,
             blog_id: uuidv4(),
+            private: e.target.private.checked,
             author: content.currentUser.username,
         }
 
@@ -46,6 +47,7 @@ export function CreateBlogSection(){
                             description: newBlog.description,
                             blog_id: newBlog.blog_id,
                             author: newBlog.author,
+                            private: newBlog.private,
                         })
 
                     if (error){
@@ -75,6 +77,8 @@ export function CreateBlogSection(){
             <input type="text" name='title'/>
             <label htmlFor="description">Add a short description of the blog:</label>
             <input type="text" name='description'/>
+            <label htmlFor="private">Private Blog:</label>
+            <input type="checkbox" name="private" />
             <input className='btn' type="submit" value="Save" />
             <button onClick={cancelCreation}>Cancel</button>
         </form>

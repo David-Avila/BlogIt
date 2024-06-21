@@ -1,10 +1,10 @@
-import { useContext, useEffect, useState } from "react"
-import { BlogPreview } from "./BlogPreview";
+import { useState, useContext, useEffect } from 'react'
+import { ContentContext } from '../ContentProvider';
+import { BlogPreview } from '../HomeSection/BlogPreview';
 import sb from '../../../Private/SupabaseClient'
-import {v4 as uuidv4} from 'uuid'
-import { ContentContext } from "../ContentProvider";
+import '../../App.css'
 
-export function BlogsGrid(){
+export function UserBlogs(){
     const [blogs, setBlogs] = useState();
     const content = useContext(ContentContext);
 
@@ -19,6 +19,7 @@ export function BlogsGrid(){
         const { data, error } = await sb
             .from("Blogs")
             .select("*")
+            .eq('author', content.currentUser.username);
 
         if (error){
             alert(error.message);
@@ -38,13 +39,34 @@ export function BlogsGrid(){
         content.setMode("Create Blog");
     }
 
+    function deleteBlog(id){
+
+        const del = async () => {
+            const { error } = await sb
+            .from('Blogs')
+            .delete()
+            .eq('blog_id', id)
+
+            if (error){
+                alert(error);
+            }
+        }
+
+        del()
+        .then(() => {
+            loadBlogs()
+            .then(res => {
+                setBlogs(res);
+            })
+        })
+
+    }
+
     return (
         <div className="blogsGrid flex">
             {(blogs != undefined && blogs.length > 0)
             && blogs.map(blog => {
-                if (!blog.private){
-                    return <BlogPreview key={blog.blog_id} data={blog}/>
-                }
+                return <BlogPreview owner={content.currentUser.username} key={blog.blog_id} data={blog} deleteBlog={deleteBlog}/>
             })}
 
             <div onClick={addBlog} className="blogPreview flex no-select">
@@ -53,4 +75,5 @@ export function BlogsGrid(){
 
         </div>
     )
+
 }
