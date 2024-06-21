@@ -43,6 +43,10 @@ a{
   min-width: 100px;
 }
 
+.no-select{
+  user-select: none;
+}
+
 /***** NAVBAR SECTION *****/
 .navBar{
   margin: 0px;
@@ -201,12 +205,21 @@ button:hover,
 
 .blogsGrid{
   padding: 10px;
+  flex-flow: row wrap;
+  gap: 20px;
 }
 
 .blogPreview{
+  text-align: center;
   width: 250px;
   min-width: 250px;
   height: 120px;
   padding: 15px;
   border-radius: 25px;
+  background: color-mix(in srgb, var(--bgColor) 80%, var(--fontColor) 5%);
+  border: 2px solid color-mix(in srgb, var(--bgColor) 50%, var(--fontColor) 20%);
+}
+
+.blogPreview:hover{
+  border: 2px solid color-mix(in srgb, var(--bgColor) 20%, var(--fontColor) 80%);
 }
