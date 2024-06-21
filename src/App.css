@@ -1,7 +1,3 @@
-*{
-  transition: all 0.2s ease-in-out;
-}
-
 :root{
   --bgColor: #161616;
   --fontColor: #ececec;
@@ -9,6 +5,10 @@
 
   background-color: var(--bgColor);
   color: var(--fontColor);
+}
+
+*{
+  transition: all 0.3s ease-in-out;
 }
 
 a{
@@ -41,7 +41,6 @@ a{
   border: 1px solid var(--accentColor);
   width: 60%;
   min-width: 100px;
-  margin-top: 25px;
 }
 
 /***** NAVBAR SECTION *****/
@@ -169,6 +168,7 @@ button:hover,
 
 .loginContainer{
   text-align: center;
+  height: min(60vh, 250px);
   position: relative;
 }
 
@@ -191,5 +191,6 @@ button:hover,
 
 .otherOption{
   position: absolute;
-  transform: translateY(250%);
+  bottom: 0%;
+  translate: 0 100%;
 }

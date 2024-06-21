@@ -1,16 +1,35 @@
 import '../../App.css'
-import supabase from '../../../Private/SupabaseClient'
+import sb from "../../../Private/SupabaseClient"
 
-export function SignInForm({mode}){
+
+export function SignInForm({mode, setLogged}){
 
     function handleSubmit(e){
         e.preventDefault();
         const user = e.target.username.value;
         const pass = e.target.password.value;
 
-        const logIn = async () => {
+        const login = async () => {
+            let { data, error } = await sb
+            .from('Users')
+            .select('*')
+            .eq('username', user)
+            .eq('password', pass)
+            .select()
 
+            if (error){
+                alert(error.message);
+            }
+
+            if (data){
+                return data;
+            }
         }
+        login()
+        .then((res) => {
+            const user = res[0];
+            setLogged(user);
+        })
     }
 
     return (

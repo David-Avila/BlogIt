@@ -12,8 +12,8 @@ export function UserLogin({setLogged}){
 
     return (
         <div className='loginContainer flex column'>
-            <SignInForm mode={mode} />
-            <SignUpForm mode={mode} />
+            <SignInForm mode={mode} setLogged={setLogged}/>
+            <SignUpForm mode={mode} setLogged={setLogged}/>
 
             <div className='otherOption'>
                 <div className='line'/>
