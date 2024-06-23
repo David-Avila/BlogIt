@@ -72,7 +72,7 @@ export function CreateBlogSection(){
     }
 
     return (
-        <form onSubmit={saveBlog} className='userForm'>
+        <form onSubmit={saveBlog} className='flex column newArticleDiv'>
             <label htmlFor="title">Blog Title:</label>
             <input type="text" name='title'/>
             <label htmlFor="description">Add a short description of the blog:</label>

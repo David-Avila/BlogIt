@@ -42,6 +42,17 @@ export function UserBlogs(){
     function deleteBlog(id){
 
         const del = async () => {
+            //Deleting articles from blog
+            const { error1 } = await sb
+            .from('Articles')
+            .delete()
+            .eq('blog_id', id)
+
+            if (error1){
+                alert(error1);
+            }
+
+            // Deleting blog itself
             const { error } = await sb
             .from('Blogs')
             .delete()
@@ -63,6 +74,8 @@ export function UserBlogs(){
     }
 
     return (
+        <div>
+
         <div className="blogsGrid flex">
             {(blogs != undefined && blogs.length > 0)
             && blogs.map(blog => {
@@ -73,6 +86,7 @@ export function UserBlogs(){
                 <h2>Create your blog</h2>
             </div>
 
+        </div>
         </div>
     )
 

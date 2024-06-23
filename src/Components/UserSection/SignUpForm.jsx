@@ -46,7 +46,7 @@ export function SignUpForm({mode, setLogged}){
 
     return (
         <form onSubmit={handleSubmit} 
-            className={mode ? 'userForm sign hide' : 'userForm sign show'}
+            className={mode ? 'userForm column sign hide' : 'userForm column sign show'}
         >
             <h1> Sign Up</h1>
             <label htmlFor="username">Username:</label>

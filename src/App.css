@@ -31,7 +31,7 @@ a{
 }
 
 .row{
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
 }
 
 .column{
@@ -48,6 +48,9 @@ a{
   user-select: none;
 }
 
+.padding{
+  padding: 20px;
+}
 
 /***** NAVBAR SECTION *****/
 .navBar{
@@ -152,7 +155,7 @@ button,
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-flow: column nowrap;
+/*  flex-flow: column nowrap;*/
 }
 
 .userForm > input{
@@ -215,7 +218,7 @@ button:hover,
   text-align: center;
   width: 250px;
   min-width: 250px;
-  height: 120px;
+  min-height: fit-content;
   padding: 15px;
   border-radius: 25px;
   background: color-mix(in srgb, var(--bgColor) 80%, var(--fontColor) 5%);
@@ -237,3 +240,57 @@ button:hover,
   background: var(--dangerColor);
   border-color: red;
 }
+
+.newArticleDiv{
+  width: 100%;
+  justify-content: start;
+  text-align: center;
+}
+
+.newArticleDiv > input {
+  border: 2px solid var(--accentColor);
+  border-radius: 25px;
+  background: inherit;
+  color: inherit;
+  margin-bottom: 10px;
+}
+
+.newArticleDiv > input:hover {
+  border-radius: 5px;
+  background: var(--accentColor);
+}
+
+.newArticleDataSection{
+  width: 40%;
+}
+
+.newArticleContentSection{
+  width: 60%;
+  height: 100%;
+}
+
+.newArticleContentSection > input{
+  width: 90%;
+  background: inherit;
+  color: inherit;
+  border: 1px solid var(--accentColor);
+}
+
+.textArea{
+  background-color: inherit;
+  border: 1px solid var(--accentColor);
+  border-radius: 25px;
+  padding: 10px;
+  width: 80%;
+  height: 200px;
+  color: inherit;
+}
+
+.articleContent{
+}
+
+
+
+
+
+

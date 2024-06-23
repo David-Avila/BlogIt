@@ -6,10 +6,12 @@ import { ContentProvider } from './Components/ContentProvider'
 import { useState } from 'react'
 
 function App() {
-	const [displayMode, setDisplayMode] = useState("Home");
-	const [currentBlog, setCurrentBlog] = useState();
-	const [currentUser, setCurrentUser] = useState();
-	const [previusMode, setPreviusMode] = useState("Home");
+	const [displayMode, setDisplayMode] 		= useState("Home");
+	const [currentBlog, setCurrentBlog] 		= useState();
+	const [currentUser, setCurrentUser] 		= useState();
+	const [currentArticle, setCurrentArticle] 	= useState();
+	const [previusMode, setPreviusMode] 		= useState("Home");
+
 	const [appData, setAppData] = useState({
 		title: "BlogIt",
 		description: "Make your dream blog real",
@@ -49,6 +51,12 @@ function App() {
 		setAppData(defaultAppData);
 	}
 
+	function setArticle(art){
+		if (art){
+			setCurrentArticle(art);
+		}
+	}
+
     return (
         <ContentProvider className='app' 
 		data={{
@@ -57,11 +65,13 @@ function App() {
 			currentBlog,
 			displayMode,
 			previusMode,
+			currentArticle,
 			setBlog,
 			setMode,
 			setUser,
 			setData,
 			setDefaultData,
+			setArticle,
 		}}
 		>
             <NavBar/>

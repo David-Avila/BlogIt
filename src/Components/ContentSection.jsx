@@ -4,7 +4,8 @@ import { HomeSection        } from "./HomeSection/HomeSection";
 import { BlogSection        } from "./BlogSection/BlogSection";
 import { UserSection        } from "./UserSection/UserSection";
 import { AboutSection       } from "./AboutSection/AboutSection";
-import { ContactSection     } from "./ContactSection/ContactSection"
+import { ContactSection     } from "./ContactSection/ContactSection";
+import { ArticleViewer      } from "./ArticleViewer/ArticleViewer";
 import { CreateBlogSection  } from "./CreateBlogSection/CreateBlogSection";
 import { CreateArticleSection } from "./BlogSection/CreateArticleSection";
 
@@ -22,11 +23,13 @@ export function ContentSection(){
             return <AboutSection />
         case "Contact":
             return <ContactSection />
+        case "Article":
+            return <ArticleViewer />
         case "Create Blog":
             return <CreateBlogSection />
         case "Create Article":
             return <CreateArticleSection />
         default:
-            return <h1>Unknown display mode: {content.displayMode}</h1>
+            return <h2>Unknown display mode: {content.displayMode}</h2>
     }
 }

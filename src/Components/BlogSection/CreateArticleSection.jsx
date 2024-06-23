@@ -2,6 +2,7 @@ import '../../App.css'
 import { ContentContext } from '../ContentProvider'
 import { useContext } from 'react'
 import sb from '../../../Private/SupabaseClient'
+import { v4 as uuidv4 } from 'uuid'
 
 export function CreateArticleSection(){
     const content = useContext(ContentContext);
@@ -14,6 +15,8 @@ export function CreateArticleSection(){
             content: e.target.content.value,
             blog_id: content.currentBlog.blog_id,
             private: e.target.private.checked,
+            art_id: uuidv4(),
+            author: content.currentUser.username
         }
 
         // Check if blog title already exists
@@ -44,6 +47,8 @@ export function CreateArticleSection(){
                             content: newArticle.content,
                             blog_id: newArticle.blog_id,
                             private: newArticle.private,
+                            art_id: newArticle.art_id,
+                            author: newArticle.author,
                         })
 
                     if (error){
@@ -53,7 +58,7 @@ export function CreateArticleSection(){
 
                 add()
                 .then(() => {
-                    content.setMode("Home");
+                    content.setMode(content.previusMode);
                 })
 
             }
@@ -68,15 +73,17 @@ export function CreateArticleSection(){
     }
 
     return (
-        <form onSubmit={saveArticle} className='userForm'>
-            <label htmlFor="title">Article Title:</label>
-            <input type="text" name='title'/>
-            <label htmlFor="content">Add a short description of the blog:</label>
-            <textarea name="content"></textarea>
-            <label htmlFor="private">Private Article:</label>
-            <input type="checkbox" name="private" />
-            <input className='btn' type="submit" value="Save" />
-            <button onClick={cancelCreation}>Cancel</button>
+        <form onSubmit={saveArticle} className='flex column newArticleDiv'>
+                <label htmlFor="title">Article Title:</label>
+                <input type="text" name='title'/>
+
+                <label htmlFor='content'>Write Content here:</label>
+                <textarea name="content" className='textArea'></textarea>
+
+                <label htmlFor="private">Private Article:</label>
+                <input type="checkbox" name="private" />
+                <input type="submit" value="Save" />
+                <button onClick={cancelCreation}>Cancel</button>
         </form>
     )
 }

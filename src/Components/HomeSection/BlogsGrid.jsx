@@ -1,3 +1,4 @@
+import '../../App.css'
 import { useContext, useEffect, useState } from "react"
 import { BlogPreview } from "./BlogPreview";
 import sb from '../../../Private/SupabaseClient'
@@ -46,9 +47,13 @@ export function BlogsGrid(){
                 }
             })}
 
-            <div onClick={addBlog} className="blogPreview flex no-select">
-                <h2>Create your blog</h2>
-            </div>
+            {content.currentUser 
+            && 
+                <div onClick={addBlog} className="blogPreview flex no-select">
+                    <h2>Create your blog</h2>
+                </div>
+            }
+
 
         </div>
     )

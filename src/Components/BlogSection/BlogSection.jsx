@@ -40,18 +40,61 @@ export function BlogSection(){
         content.setMode("Create Article");
     }
     
+    function deleteArticle(id){
+        const del = async () => {
+            const { error } = await sb
+            .from('Articles')
+            .delete()
+            .eq('art_id', id)
+
+            if (error){
+                alert(error);
+            }
+        }
+
+        del()
+        .then(() => {
+            loadArticles()
+            .then(res => {
+                setArticles(res);
+            })
+        })
+    }
+
+    function openArticle(art){
+        content.setArticle(art);
+        content.setMode("Article");
+    }
 
     return (
         <div className='blogsGrid flex'>
 
             {(articles != undefined && articles.length > 0)
             && articles.map(art => {
-                
+                    if (!art.private){
+                        return (<div key={art.art_id} className="blogPreview flex column no-select">
+                            <h1>{art.title}</h1>
+
+                            <div className='flex row'>
+                                <button onClick={() => {openArticle(art)}}>Open Article</button>
+
+                                {(content.currentUser != undefined && content.currentUser.username === art.author)
+                                    && <button 
+                                        onClick={() => {deleteArticle(art.art_id)}}
+                                        className='danger'>Delete
+                                    </button>}
+                            </div>
+                        </div>)
+                    }
             })}
 
-            <div onClick={addArticle} className="blogPreview flex no-select">
-                <h2>Add Article</h2>
-            </div>
+            {(content.currentUser && content.currentUser.username === content.currentBlog.author)
+            && 
+                <div onClick={addArticle} className="blogPreview flex no-select">
+                    <h2>Add Article</h2>
+                </div>
+            }
+
         </div>
     )
 }
