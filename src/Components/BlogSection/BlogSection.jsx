@@ -71,7 +71,7 @@ export function BlogSection(){
 
             {(articles != undefined && articles.length > 0)
             && articles.map(art => {
-                    if (!art.private){
+                    if (!art.private || (content.currentUser &&  art.author === content.currentUser.username)){
                         return (<div key={art.art_id} className="blogPreview flex column no-select">
                             <h1>{art.title}</h1>
 

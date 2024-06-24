@@ -76,7 +76,7 @@ export function CreateBlogSection(){
             <label htmlFor="title">Blog Title:</label>
             <input type="text" name='title'/>
             <label htmlFor="description">Add a short description of the blog:</label>
-            <input type="text" name='description'/>
+            <span class="textArea" role="textbox" name="description" contentEditable></span>   
             <label htmlFor="private">Private Blog:</label>
             <input type="checkbox" name="private" />
             <input className='btn' type="submit" value="Save" />

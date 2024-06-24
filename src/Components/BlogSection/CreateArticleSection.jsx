@@ -78,7 +78,7 @@ export function CreateArticleSection(){
                 <input type="text" name='title'/>
 
                 <label htmlFor='content'>Write Content here:</label>
-                <textarea name="content" className='textArea'></textarea>
+                <span class="textArea" role="textbox" name="content" contentEditable></span>                
 
                 <label htmlFor="private">Private Article:</label>
                 <input type="checkbox" name="private" />
