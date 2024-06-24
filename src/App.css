@@ -52,6 +52,11 @@ a{
   padding: 20px;
 }
 
+.socialIcons{
+  width: 80%;
+  justify-content: space-evenly;
+}
+
 /***** NAVBAR SECTION *****/
 .navBar{
   margin: 0px;
