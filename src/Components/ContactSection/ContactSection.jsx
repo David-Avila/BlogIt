@@ -18,7 +18,7 @@ export function ContactSection(){
             </p>
             <div className='flex row socialIcons'>
                 <NavBarItem data={{
-                        action: () => {goTo("www.linkedin.com/in/david-avila-duran-12568a222")}, 
+                        action: () => {goTo("https://www.linkedin.com/in/david-avila-duran-12568a222")}, 
                         icon: <FaLinkedin size={iconSize}/>,
                         tooltip: "LinkedIn",
                         }} 
