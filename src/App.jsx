@@ -28,6 +28,9 @@ function App() {
 
 	function setMode(mode){
 		setPreviusMode(displayMode);
+		if (mode === "Home"){
+			setDefaultData();
+		}
 		setDisplayMode(mode);
 	}
 

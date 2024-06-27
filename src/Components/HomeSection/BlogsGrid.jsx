@@ -7,10 +7,17 @@ import { ContentContext } from "../ContentProvider";
 export function BlogsGrid(){
     const [blogs, setBlogs] = useState();
     const content = useContext(ContentContext);
+    const [mainBlog, setMainBlog] = useState();
 
     useEffect(() => {
         loadBlogs()
         .then(res => {
+            res.map((blog) => {
+                if (blog.author === "BlogIt"){
+                    setMainBlog(blog);
+                }
+            })
+
             setBlogs(res);
         })
     }, [])
@@ -40,9 +47,10 @@ export function BlogsGrid(){
 
     return (
         <div className="blogsGrid flex row">
+            {mainBlog && <BlogPreview key={mainBlog.blog_id} data={mainBlog}/>}
             {(blogs != undefined && blogs.length > 0)
             && blogs.map(blog => {
-                if (!blog.private){
+                if (!blog.private && blog.author != "BlogIt"){
                     return <BlogPreview key={blog.blog_id} data={blog}/>
                 }
             })}
