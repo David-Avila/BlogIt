@@ -332,3 +332,10 @@ button:hover,
   color: red;
 }
 
+.btnsDiv{
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-flow: row wrap;
+}

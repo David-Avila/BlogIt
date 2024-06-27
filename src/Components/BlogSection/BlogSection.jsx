@@ -80,7 +80,7 @@ export function BlogSection(){
                         return (<div key={art.art_id} className="blogPreview flex column no-select">
                             <h1>{art.title}</h1>
 
-                            <div className='flex row'>
+                            <div className='btnsDiv'>
                                 <button onClick={() => {openArticle(art)}}>Open</button>
 
                                 {(content.currentUser != undefined && content.currentUser.username === art.author)

@@ -10,6 +10,11 @@ export function BlogPreview({data, owner, deleteBlog}){
         content.setBlog(data);
     }
 
+    function editBlog(blog){
+        content.setBlog(blog);
+        content.setMode("Create Blog");
+    }
+
     return (
         <section className="blogPreview no-select">
             <div className='flex column'>
@@ -17,13 +22,20 @@ export function BlogPreview({data, owner, deleteBlog}){
                 <h3>By: {data.author}</h3>
             </div>
 
-            <div className='flex column'>
-                <button onClick={openBlog}>Open Blog</button>
+            <div className='btnsDiv'>
+                <button onClick={openBlog}>Open</button>
 
                 {owner === data.author 
-                && <button 
-                    onClick={() => {deleteBlog(data.blog_id)}}
-                    className='danger'>Delete</button>}
+                && <>
+                    <button 
+                        onClick={() => {deleteBlog(data.blog_id)}}
+                        className='danger'>Delete</button>
+
+                    <button 
+                        onClick={() => {editBlog(data)}}
+                        >Edit</button>
+                </>
+                }
             </div>
         </section>
     )
