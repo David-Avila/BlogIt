@@ -5,7 +5,6 @@ import { ContentContext } from '../ContentProvider'
 
 export function ArticleViewer(){
     const content = useContext(ContentContext);
-    const textContent = content.currentArticle.content.replace("/\n/", "<br/>");
     const parr = useRef();
 
     useEffect(() => {
@@ -14,7 +13,13 @@ export function ArticleViewer(){
             description: "By: " + content.currentArticle.author,
         })
 
-        parr.current.innerText = content.currentArticle.content.replace("/\n/", "<br/>");
+        let textContent = content.currentArticle.content.replace("\n", "<br/>");
+        textContent = textContent.replace("<B>", "<bold>");
+        textContent = textContent.replace("</B>", "</bold>");
+        textContent = textContent.replace("<I>", "<i>");
+        textContent = textContent.replace("</I>", "</i>");
+
+        parr.current.innerHTML = textContent;
     }, [])
 
     function goBack(){
@@ -22,7 +27,7 @@ export function ArticleViewer(){
     }
 
     return(
-        <div className='flex column padding'>
+        <div className='flex column articleViewer'>
             <button onClick={goBack}>Back</button>
             <p className='articleContent' ref={parr}></p>
         </div>

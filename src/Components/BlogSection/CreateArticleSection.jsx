@@ -1,18 +1,19 @@
 import '../../App.css'
 import { ContentContext } from '../ContentProvider'
-import { useContext } from 'react'
+import { useContext, useRef } from 'react'
 import sb from '../../../Private/SupabaseClient'
 import { v4 as uuidv4 } from 'uuid'
 
 export function CreateArticleSection(){
     const content = useContext(ContentContext);
+    const cont = useRef();
 
     function saveArticle(e){
         e.preventDefault();
 
         const newArticle = {
             title: e.target.title.value,
-            content: e.target.content.value,
+            content: cont.current.innerText,
             blog_id: content.currentBlog.blog_id,
             private: e.target.private.checked,
             art_id: uuidv4(),
@@ -78,7 +79,7 @@ export function CreateArticleSection(){
                 <input type="text" name='title'/>
 
                 <label htmlFor='content'>Write Content here:</label>
-                <span class="textArea" role="textbox" name="content" contentEditable></span>                
+                <span className="textArea" role="textbox" ref={cont}  name="content" contentEditable></span>                
 
                 <label htmlFor="private">Private Article:</label>
                 <input type="checkbox" name="private" />

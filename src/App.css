@@ -290,17 +290,23 @@ button:hover,
   padding: 10px;
   width: 80%;
   height: fit-content;
-  min-height: fit-content;
   text-align: left;
   overflow: hidden scroll;
   color: inherit;
 }
 
 .articleContent{
+  width: max(50%, 240px);
 }
 
+bold{
+  font-weight: 900;
+  font-size: 32px;
+}
 
-
+.italicText{
+  font-style: italic;
+}
 
 
 

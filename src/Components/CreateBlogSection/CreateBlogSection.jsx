@@ -1,18 +1,19 @@
 import '../../App.css'
 import { ContentContext } from '../ContentProvider'
-import { useContext } from 'react'
+import { useContext, useRef } from 'react'
 import sb from '../../../Private/SupabaseClient'
 import { v4 as uuidv4 } from 'uuid'
 
 export function CreateBlogSection(){
     const content = useContext(ContentContext);
+    const desc = useRef();
 
     function saveBlog(e){
         e.preventDefault();
 
         const newBlog = {
             title: e.target.title.value,
-            description: e.target.description.value,
+            description: desc.current.innerText,//e.target.description.value,
             blog_id: uuidv4(),
             private: e.target.private.checked,
             author: content.currentUser.username,
@@ -76,7 +77,7 @@ export function CreateBlogSection(){
             <label htmlFor="title">Blog Title:</label>
             <input type="text" name='title'/>
             <label htmlFor="description">Add a short description of the blog:</label>
-            <span class="textArea" role="textbox" name="description" contentEditable></span>   
+            <span className="textArea" ref={desc} role="textbox" name="description" contentEditable></span>   
             <label htmlFor="private">Private Blog:</label>
             <input type="checkbox" name="private" />
             <input className='btn' type="submit" value="Save" />
