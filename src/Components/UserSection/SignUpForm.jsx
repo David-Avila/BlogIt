@@ -53,6 +53,10 @@ export function SignUpForm({mode, setLogged}){
             <input type="text" name="username" required/>
             <label htmlFor="password">Password:</label>
             <input type="password" name="password" required/>
+            <div>
+                <label htmlFor="remember">Remember user:</label>
+                <input type="checkbox" name='remember' />
+            </div>
             <input className='btn' type="submit" value="Sign Up" />
         </form>
     )

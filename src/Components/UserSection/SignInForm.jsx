@@ -28,6 +28,11 @@ export function SignInForm({mode, setLogged}){
         login()
         .then((res) => {
             const user = res[0];
+
+            if (e.target.remember.checked){
+                localStorage.setItem('user', JSON.stringify(user));   
+            }
+
             setLogged(user);
         })
     }
@@ -41,6 +46,10 @@ export function SignInForm({mode, setLogged}){
             <input type="text" name="username" />
             <label htmlFor="password">Password:</label>
             <input type="password" name="password" />
+            <div>
+                <label htmlFor="remember">Remember user:</label>
+                <input type="checkbox" name='remember' />
+            </div>
             <input className='btn' type="submit" value="Sign In" />
         </form>
     )

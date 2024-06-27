@@ -75,18 +75,23 @@ export function UserBlogs(){
 
     return (
         <div>
+            {(blogs != undefined && blogs.length > 0) 
+            ?
+                <h2>This are your blogs</h2>
+            : 
+                <h2>You don't have blogs, consider making one</h2>
+            }
+            <div className="blogsGrid flex">
+                {(blogs != undefined && blogs.length > 0)
+                && blogs.map(blog => {
+                    return <BlogPreview owner={content.currentUser.username} key={blog.blog_id} data={blog} deleteBlog={deleteBlog}/>
+                })}
 
-        <div className="blogsGrid flex">
-            {(blogs != undefined && blogs.length > 0)
-            && blogs.map(blog => {
-                return <BlogPreview owner={content.currentUser.username} key={blog.blog_id} data={blog} deleteBlog={deleteBlog}/>
-            })}
+                <div onClick={addBlog} className="blogPreview flex no-select">
+                    <h2>Create your blog</h2>
+                </div>
 
-            <div onClick={addBlog} className="blogPreview flex no-select">
-                <h2>Create your blog</h2>
             </div>
-
-        </div>
         </div>
     )
 

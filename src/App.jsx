@@ -3,7 +3,7 @@ import { NavBar } from './Components/NavBar/NavBar'
 import { TitleSection } from './Components/TittleSection/TitleSection'
 import { ContentSection } from './Components/ContentSection'
 import { ContentProvider } from './Components/ContentProvider'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 function App() {
 	const [displayMode, setDisplayMode] 		= useState("Home");
@@ -16,6 +16,13 @@ function App() {
 		title: "BlogIt",
 		description: "Make your dream blog real",
 	});
+
+	useEffect(() => {
+		const fetchUser = localStorage.getItem('user');
+		if (fetchUser){
+			setUser(JSON.parse(fetchUser));
+		}
+	}, [])
 
 	const defaultAppData = {
 		title: "BlogIt",

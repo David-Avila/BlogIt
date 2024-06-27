@@ -7,8 +7,17 @@ export function UserConfig(){
     const content = useContext(ContentContext);
 
     function logOut(){
+        localStorage.removeItem('user');
         content.setUser(null);
         content.setMode("Home");
+    }
+
+    function changeUser(){
+
+    }
+
+    function changePass(){
+
     }
 
     return (
@@ -19,11 +28,10 @@ export function UserConfig(){
 
             <div className='flex column'>
                 <button onClick={logOut}>Log Out</button>
-                <h2>Change Username</h2>
-                <h2>Change Password</h2>
+                <button onClick={changeUser}>Change Username</button>
+                <button onClick={changePass}>Change Password</button>
             </div>
 
-            <h2>This are your blogs</h2>
             <UserBlogs />
             
         </div>
