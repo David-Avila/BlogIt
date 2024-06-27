@@ -308,7 +308,7 @@ button:hover,
 .articleContent{
   font-size: 1.2em;
   line-height: normal;
-  width: max(60%, 240px);
+  width: min(90%, 920px);
   letter-spacing: normal;
 }
 
