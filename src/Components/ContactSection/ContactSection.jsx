@@ -35,12 +35,6 @@ export function ContactSection(){
                         tooltip: "LinkedIn",
                         }} 
                 />
-                <NavBarItem data={{
-                        action: () => {goTo("https://github.com/David-Avila")}, 
-                        icon: <FaGithub size={iconSize}/>,
-                        tooltip: "GitHub",
-                        }} 
-                />
 
                 <NavBarItem data={{
                         action: gmailClicked, 
