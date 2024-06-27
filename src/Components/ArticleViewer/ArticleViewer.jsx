@@ -17,12 +17,15 @@ export function ArticleViewer(){
         let textContent = content.currentArticle.content.replace(/\n/g, "<br>");
 
         // TITLES
-        textContent = textContent.replace(/<B/g, "<span class='bold'>")
-        textContent = textContent.replace(/B>/g, "</span>")
+        textContent = textContent.replace(/<H/g, "<span class='bold'>")
+        textContent = textContent.replace(/H>/g, "</span>")
 
-        // ITALIC
-        textContent = textContent.replace(/<I/g, "<i>")
-        textContent = textContent.replace(/I>/g, "</i>")
+        // SMALL TITLES
+        textContent = textContent.replace(/<h/g, "<span class='bold-small'>")
+        textContent = textContent.replace(/h>/g, "</span>")
+        // COURSIVE
+        textContent = textContent.replace(/<C/g, "<i>")
+        textContent = textContent.replace(/C>/g, "</i>")
         parr.current.innerHTML = textContent;
         //parr.current.innerText = content.currentArticle.content;
     }, [])
@@ -35,7 +38,7 @@ export function ArticleViewer(){
     return(
         <div className='flex column articleViewer'>
             <button onClick={goBack}>Back</button>
-            <h3 className='articleContent' ref={parr}></h3>
+            <p className='articleContent' ref={parr}></p>
         </div>
     )
 

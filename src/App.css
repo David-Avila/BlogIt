@@ -301,12 +301,22 @@ button:hover,
 }
 
 .articleContent{
-  width: max(50%, 240px);
+  font-weight: 100;
+  font-size: 1.2em;
+  line-height: normal;
+  width: max(60%, 240px);
+  letter-spacing: normal;
 }
 
 .bold{
   font-weight: 900;
-  font-size: 28px;
+  font-size: 2rem;
+  line-height: 1.5em;
+}
+
+.bold-small{
+  font-weight: 900;
+  font-size: 1.5rem;
 }
 
 .italicText{

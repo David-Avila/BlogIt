@@ -23,28 +23,20 @@ function App() {
 	}
 
 	function setBlog(blog){
-		if (blog){
-			setCurrentBlog(blog);
-		}
+		setCurrentBlog(blog);
 	}
 
 	function setMode(mode){
-		if (mode){
-			setPreviusMode(displayMode);
-			setDisplayMode(mode);
-		}
+		setPreviusMode(displayMode);
+		setDisplayMode(mode);
 	}
 
 	function setUser(user){
-		if (user){
-			setCurrentUser(user)
-		}
+		setCurrentUser(user)
 	}
 
 	function setData(data){
-		if (data){
-			setAppData(data);
-		}
+		setAppData(data);
 	}
 
 	function setDefaultData(){
@@ -52,9 +44,7 @@ function App() {
 	}
 
 	function setArticle(art){
-		if (art){
-			setCurrentArticle(art);
-		}
+		setCurrentArticle(art);
 	}
 
     return (

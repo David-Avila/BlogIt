@@ -47,6 +47,7 @@ export function CreateArticleSection({}){
             upd()
             .then(() => {
                 content.setMode(content.previusMode);
+                content.setArticle(null);
             })            
 
             return
@@ -101,6 +102,7 @@ export function CreateArticleSection({}){
                 add()
                 .then(() => {
                     content.setMode(content.previusMode);
+                    content.setArticle(null);
                 })
 
             }
@@ -111,6 +113,7 @@ export function CreateArticleSection({}){
     }
 
     function cancelCreation(){
+        content.setArticle(null);
         content.setMode(content.previusMode);
     }
 
