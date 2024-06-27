@@ -4,7 +4,7 @@ import { SignInForm } from './SignInForm'
 import { SignUpForm } from './SignUpForm'
 
 export function UserLogin({setLogged}){
-    const [mode, setMode] = useState(true);
+    const [mode, setMode] = useState(false);
 
     function handleChange(){
         setMode(prev => prev = !prev);

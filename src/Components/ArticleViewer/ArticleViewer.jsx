@@ -23,9 +23,15 @@ export function ArticleViewer(){
         // SMALL TITLES
         textContent = textContent.replace(/<h/g, "<span class='bold-small'>")
         textContent = textContent.replace(/h>/g, "</span>")
+
         // COURSIVE
         textContent = textContent.replace(/<C/g, "<i>")
         textContent = textContent.replace(/C>/g, "</i>")
+
+        // ESCAPING 
+        textContent = textContent.replace(/<!/g, "<span><</span>")
+        textContent = textContent.replace(/!>/g, "<span>></span>")
+
         parr.current.innerHTML = textContent;
         //parr.current.innerText = content.currentArticle.content;
     }, [])

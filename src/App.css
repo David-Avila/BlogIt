@@ -10,6 +10,8 @@
 
 *{
   transition: all 0.3s ease-in-out;
+  font-family: "Playwrite DE Grund", cursive;
+  font-style: normal;
 }
 
 a{
@@ -17,6 +19,10 @@ a{
   color: inherit;
   cursor: pointer;
   position: relative;
+}
+
+p{
+  font-size: 1.2em;
 }
 
 .app{
@@ -53,7 +59,7 @@ a{
 }
 
 .socialIcons{
-  width: 80%;
+  width: 220px;
   justify-content: space-evenly;
 }
 
@@ -207,7 +213,7 @@ button:hover,
 .otherOption{
   position: absolute;
   bottom: 0%;
-  translate: 0 100%;
+  translate: 0 120%;
 }
 
 .userConfig{
@@ -301,7 +307,6 @@ button:hover,
 }
 
 .articleContent{
-  font-weight: 100;
   font-size: 1.2em;
   line-height: normal;
   width: max(60%, 240px);
