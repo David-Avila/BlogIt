@@ -18,10 +18,10 @@ export function SignInForm({mode, setLogged}){
             .select()
 
             if (error){
-                alert(error.message);
+                alert(error.hint);
             }
 
-            if (data){
+            else if (data){
                 return data;
             }
         }

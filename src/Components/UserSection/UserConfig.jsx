@@ -23,7 +23,7 @@ export function UserConfig(){
     return (
         <div className='userConfig'>
             <h2>Hi {content.currentUser.username}. Here you
-                can config your profile.
+                can configurate your profile.
             </h2>
 
             <div className='flex column'>
