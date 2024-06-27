@@ -221,6 +221,11 @@ button:hover,
 }
 
 .blogPreview{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column nowrap;
+
   text-align: center;
   width: 250px;
   min-width: 250px;
@@ -299,14 +304,16 @@ button:hover,
   width: max(50%, 240px);
 }
 
-bold{
+.bold{
   font-weight: 900;
-  font-size: 32px;
+  font-size: 28px;
 }
 
 .italicText{
   font-style: italic;
 }
 
-
+.red{
+  color: red;
+}
 

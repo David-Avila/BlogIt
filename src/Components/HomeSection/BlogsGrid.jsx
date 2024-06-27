@@ -39,7 +39,7 @@ export function BlogsGrid(){
     }
 
     return (
-        <div className="blogsGrid flex">
+        <div className="blogsGrid flex row">
             {(blogs != undefined && blogs.length > 0)
             && blogs.map(blog => {
                 if (!blog.private){

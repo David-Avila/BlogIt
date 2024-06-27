@@ -14,6 +14,7 @@ export function NavBar(){
 
     function btnHomeClicked(){
         content.setDefaultData();
+        content.setBlog(null);
         content.setMode("Home");
     }
 
@@ -22,6 +23,7 @@ export function NavBar(){
             title: "About",
             description: "What is BlogIt?",
         })
+        content.setBlog(null);
         content.setMode("About");
     }
 
@@ -30,6 +32,7 @@ export function NavBar(){
             title: "Contact",
             description: "Here is how you can contact me",
         })
+        content.setBlog(null);
         content.setMode("Contact");
     }
 
@@ -38,6 +41,7 @@ export function NavBar(){
             title: "User",
             description: "Manage your account here",
         })
+        content.setBlog(null);
         content.setMode("User");
     }
 

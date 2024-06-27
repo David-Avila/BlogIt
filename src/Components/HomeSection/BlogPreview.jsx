@@ -11,7 +11,7 @@ export function BlogPreview({data, owner, deleteBlog}){
     }
 
     return (
-        <section className="blogPreview flex row no-select">
+        <section className="blogPreview no-select">
             <div className='flex column'>
                 <h2>{data.title}</h2>
                 <h3>By: {data.author}</h3>

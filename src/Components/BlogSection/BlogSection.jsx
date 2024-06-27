@@ -66,6 +66,11 @@ export function BlogSection(){
         content.setMode("Article");
     }
 
+    function editArticle(art){
+        content.setArticle(art);
+        content.setMode("Create Article")
+    }
+
     return (
         <div className='blogsGrid flex'>
 
@@ -76,13 +81,20 @@ export function BlogSection(){
                             <h1>{art.title}</h1>
 
                             <div className='flex row'>
-                                <button onClick={() => {openArticle(art)}}>Open Article</button>
+                                <button onClick={() => {openArticle(art)}}>Open</button>
 
                                 {(content.currentUser != undefined && content.currentUser.username === art.author)
-                                    && <button 
+                                    && <>
+                                    <button 
                                         onClick={() => {deleteArticle(art.art_id)}}
                                         className='danger'>Delete
-                                    </button>}
+                                    </button>
+
+                                    <button onClick={() => {editArticle(art)}}>
+                                        Edit
+                                    </button>
+                                    </>
+                                }
                             </div>
                         </div>)
                     }

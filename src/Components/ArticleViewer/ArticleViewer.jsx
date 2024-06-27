@@ -13,23 +13,29 @@ export function ArticleViewer(){
             description: "By: " + content.currentArticle.author,
         })
 
-        let textContent = content.currentArticle.content.replace("\n", "<br/>");
-        textContent = textContent.replace("<B>", "<bold>");
-        textContent = textContent.replace("</B>", "</bold>");
-        textContent = textContent.replace("<I>", "<i>");
-        textContent = textContent.replace("</I>", "</i>");
+        // NEW LINES
+        let textContent = content.currentArticle.content.replace(/\n/g, "<br>");
 
+        // TITLES
+        textContent = textContent.replace(/<B/g, "<span class='bold'>")
+        textContent = textContent.replace(/B>/g, "</span>")
+
+        // ITALIC
+        textContent = textContent.replace(/<I/g, "<i>")
+        textContent = textContent.replace(/I>/g, "</i>")
         parr.current.innerHTML = textContent;
+        //parr.current.innerText = content.currentArticle.content;
     }, [])
 
     function goBack(){
+        content.setArticle(null);
         content.setMode(content.previusMode);
     }
 
     return(
         <div className='flex column articleViewer'>
             <button onClick={goBack}>Back</button>
-            <p className='articleContent' ref={parr}></p>
+            <h3 className='articleContent' ref={parr}></h3>
         </div>
     )
 
