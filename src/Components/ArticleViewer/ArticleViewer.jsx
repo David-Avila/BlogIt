@@ -13,6 +13,8 @@ export function ArticleViewer(){
             description: "By: " + content.currentArticle.author,
         })
 
+        window.scrollTo(0, 0);
+
         // NEW LINES
         let textContent = content.currentArticle.content.replace(/\n/g, "<br>");
 

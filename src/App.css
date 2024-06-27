@@ -10,8 +10,7 @@
 
 *{
   transition: all 0.3s ease-in-out;
-  font-family: "Playwrite DE Grund", cursive;
-  font-style: normal;
+  font-family: "Playwrite DE Grund", Impact;
 }
 
 a{
@@ -338,4 +337,8 @@ button:hover,
   justify-content: space-evenly;
   align-items: center;
   flex-flow: row wrap;
+}
+
+.cursive{
+  font-style: italic;
 }
