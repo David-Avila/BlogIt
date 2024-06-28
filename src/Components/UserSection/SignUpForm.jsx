@@ -17,31 +17,51 @@ export function SignUpForm({mode, setLogged}){
             about: "",
         }
 
-        const register = async () => {
-            const { data, error } = await sb
-            .from('Users')
-            .insert([{ 
-                user_id: user.user_id,
-                username: user.username,
-                password: user.password,
-            }])
-            .select()
-        
-            if (error){
-                alert(error.message);
-            }
+        const check = async () => {
+            const {data, error} = await sb
+            .from("Users")
+            .select("*")
+            .eq("username", user.username)
 
-            if (data){
-                return data;
+            if (error){
+                alert(error.hint);
+            } else if (data){
+                return data
             }
         }
+        check()
+        .then(res => {
+            if (res.length > 0){
+                alert("Username not available");
+                return;
+            }
 
-        register()
-        .then((res) => {
-            const user = res[0];
-            setLogged(user);
+            const register = async () => {
+                const { data, error } = await sb
+                .from('Users')
+                .insert([{ 
+                    user_id: user.user_id,
+                    username: user.username,
+                    password: user.password,
+                }])
+                .select()
+            
+                if (error){
+                    alert(error.hint);
+                }
+
+                if (data){
+                    return data;
+                }
+            }
+
+            register()
+            .then((res) => {
+                console.log(res)
+                //const user = res[0];
+                //setLogged(user);
+            })
         })
-        
     }   
     
     return (

@@ -18,6 +18,7 @@ function App() {
 	});
 
 	useEffect(() => {
+
 		const fetchUser = localStorage.getItem('user');
 		if (fetchUser){
 			setUser(JSON.parse(fetchUser));

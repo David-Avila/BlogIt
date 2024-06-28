@@ -27,6 +27,12 @@ export function SignInForm({mode, setLogged}){
         }
         login()
         .then((res) => {
+            
+            if (res.length == 0){
+                alert("Username or password are incorrect, or acount does not exists");
+                return
+            }
+
             const user = res[0];
 
             if (e.target.remember.checked){
