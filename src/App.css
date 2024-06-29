@@ -91,6 +91,7 @@ p{
 button,
 .btnThemeSelect{
   background-color: inherit;
+  font-size: 1.2em;
   border-radius: 20px;
   border: 2px solid var(--accentColor);
   color: inherit;

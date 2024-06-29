@@ -1,15 +1,50 @@
 import '../../App.css'
 import { ContentContext } from '../ContentProvider'
-import { useContext, useRef } from 'react'
+import { useContext, useEffect, useRef } from 'react'
 import sb from '../../../Private/SupabaseClient'
 import { v4 as uuidv4 } from 'uuid'
 
 export function CreateBlogSection(){
     const content = useContext(ContentContext);
+    const title = useRef();
     const desc = useRef();
+    const priv = useRef();
+
+    useEffect(() => {
+        if (content.currentBlog){
+            title.current.value = content.currentBlog.title;
+            desc.current.innerText = content.currentBlog.description;
+            priv.current.checked = content.currentBlog.private;
+        }
+    }, [])
 
     function saveBlog(e){
         e.preventDefault();
+
+        if (content.currentBlog){
+            const upd = async () => {
+                const { data, error } = await sb
+                .from('Blogs')
+                .update({ 
+                    title: e.target.title.value,
+                    description: desc.current.innerText,
+                    private: e.target.private.checked,
+                })
+                .eq('blog_id', content.currentBlog.blog_id)
+
+                if (error){
+                    alert(error.hint);
+                }
+            }
+
+            upd()
+            .then(() => {
+                content.setMode(content.previusMode);
+                content.setBlog(null);
+            })    
+
+            return;
+        }
 
         const newBlog = {
             title: e.target.title.value,
@@ -75,11 +110,11 @@ export function CreateBlogSection(){
     return (
         <form onSubmit={saveBlog} className='flex column newArticleDiv'>
             <label htmlFor="title">Blog Title:</label>
-            <input type="text" name='title'/>
+            <input type="text" ref={title} name='title'/>
             <label htmlFor="description">Add a short description of the blog:</label>
             <span className="textArea" ref={desc} role="textbox" name="description" contentEditable></span>   
             <label htmlFor="private">Private Blog:</label>
-            <input type="checkbox" name="private" />
+            <input type="checkbox" ref={priv} name="private" />
             <input className='btn' type="submit" value="Save" />
             <button onClick={cancelCreation}>Cancel</button>
         </form>

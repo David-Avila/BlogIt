@@ -37,7 +37,10 @@ function App() {
 	function setMode(mode){
 		setPreviusMode(displayMode);
 		if (mode === "Home"){
+			setBlog(null);
 			setDefaultData();
+		} else if (mode != "Blog" && mode != "Create Blog"){
+			setBlog(null);
 		}
 		setDisplayMode(mode);
 	}

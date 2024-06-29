@@ -110,10 +110,12 @@ export function UserConfig(){
                 <button onClick={logOut}>Log Out</button>
                 <button onClick={() => {
                     setChangeUser(true);
+                    window.scrollTo(0, 0);
                     document.body.style.overflow = 'hidden';
                 }}>Change Username</button>
                 <button onClick={() => {
                     setChangePass(true)
+                    window.scrollTo(0, 0);
                     document.body.style.overflow = 'hidden';
                 }}>Change Password</button>
             </div>
