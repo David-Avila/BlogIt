@@ -28,7 +28,7 @@ export function BlogSection(){
             .eq("blog_id", content.currentBlog.blog_id);
 
         if (error){
-            alert(error.message);
+            content.showAlert(error.message);
         }        
 
         if (data){
@@ -48,7 +48,7 @@ export function BlogSection(){
             .eq('art_id', id)
 
             if (error){
-                alert(error);
+                content.showAlert(error.message);
             }
         }
 

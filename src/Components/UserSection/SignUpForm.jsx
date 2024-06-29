@@ -2,8 +2,11 @@
 import '../../App.css'
 import sb from '../../../Private/SupabaseClient'
 import {v4 as uuidv4} from 'uuid';
+import { ContentContext } from '../ContentProvider';
+import { useContext } from 'react';
 
 export function SignUpForm({mode, setLogged}){
+    const content = useContext(ContentContext);
 
     function handleSubmit(e){
         e.preventDefault();
@@ -24,7 +27,7 @@ export function SignUpForm({mode, setLogged}){
             .eq("username", user.username)
 
             if (error){
-                alert(error.hint);
+                content.showAlert(error.message);
             } else if (data){
                 return data
             }
@@ -32,7 +35,7 @@ export function SignUpForm({mode, setLogged}){
         check()
         .then(res => {
             if (res.length > 0){
-                alert("Username not available");
+                content.showAlert("Username not available");
                 return;
             }
 
@@ -47,7 +50,7 @@ export function SignUpForm({mode, setLogged}){
                 .select()
             
                 if (error){
-                    alert(error.hint);
+                    content.showAlert(error.message);
                 }
 
                 if (data){
@@ -57,9 +60,12 @@ export function SignUpForm({mode, setLogged}){
 
             register()
             .then((res) => {
-                console.log(res)
-                //const user = res[0];
-                //setLogged(user);
+                if (res.length > 0){
+                    const user = res[0];
+                    setLogged(user);
+                } else {
+                    content.showAlert("Something when wrong, try logging");
+                }
             })
         })
     }   

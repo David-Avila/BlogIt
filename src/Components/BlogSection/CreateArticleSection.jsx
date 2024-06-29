@@ -40,7 +40,7 @@ export function CreateArticleSection({}){
                 .eq('art_id', artData.art_id)
 
                 if (error){
-                    alert(error);
+                    content.showAlert(error.message);
                 }
             }
 
@@ -70,7 +70,7 @@ export function CreateArticleSection({}){
                 .eq("title", newArticle.title)
 
             if (error){
-                alert(error);
+                content.showAlert(error.message);
             }
 
             if (data){
@@ -95,7 +95,7 @@ export function CreateArticleSection({}){
                         })
 
                     if (error){
-                        alert(error);
+                        content.showAlert(error.message);
                     }
                 }
 
@@ -107,7 +107,7 @@ export function CreateArticleSection({}){
 
             }
             else {
-                alert("Article already exists");
+                content.showAlert("Article already exists");
             }
         })
     }

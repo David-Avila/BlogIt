@@ -28,7 +28,7 @@ export function BlogsGrid(){
             .select("*")
 
         if (error){
-            alert(error.message);
+            content.showAlert(error.message);
         }        
 
         if (data){
@@ -38,7 +38,7 @@ export function BlogsGrid(){
 
     function addBlog(){
         if (!content.currentUser){
-            alert("You have to be loged in to create a blog");
+            content.showAlert("You have to be loged in to create a blog");
             return
         }
 

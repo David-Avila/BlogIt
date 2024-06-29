@@ -2,7 +2,6 @@ import { useContext } from 'react'
 import '../../App.css'
 import { ContentContext } from '../ContentProvider'
 
-
 export function TitleSection(){
     const content = useContext(ContentContext);    
 

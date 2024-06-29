@@ -22,7 +22,7 @@ export function UserBlogs(){
             .eq('author', content.currentUser.username);
 
         if (error){
-            alert(error.message);
+            content.showAlert(error.message);
         }        
 
         if (data){
@@ -32,7 +32,7 @@ export function UserBlogs(){
 
     function addBlog(){
         if (!content.currentUser){
-            alert("You have to be loged in to create a blog");
+            content.showAlert("You have to be loged in to create a blog");
             return
         }
 
@@ -49,7 +49,7 @@ export function UserBlogs(){
             .eq('blog_id', id)
 
             if (error1){
-                alert(error1);
+                content.showAlert(error1.message);
             }
 
             // Deleting blog itself
@@ -59,7 +59,7 @@ export function UserBlogs(){
             .eq('blog_id', id)
 
             if (error){
-                alert(error);
+                content.showAlert(error.message);
             }
         }
 

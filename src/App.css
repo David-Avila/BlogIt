@@ -370,3 +370,26 @@ form > .btn:hover{
   scroll-behavior: auto;
   opacity: 0;
 }
+
+.alert{
+  position: absolute;
+  padding: 50px;
+  border-radius: 25px;
+  background-color: var(--bgColor);
+  color: inherit;
+  filter: drop-shadow(0 0 5em var(--accentColor));
+  border: 1px solid var(--accentColor);
+  top: 50%;
+  translate: -50% -50%;
+  left: 50%;
+}
+
+.showAlert{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.hideAlert{
+  opacity: 0;
+  pointer-events: none;
+}

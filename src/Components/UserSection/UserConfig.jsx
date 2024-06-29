@@ -26,7 +26,7 @@ export function UserConfig(){
             .eq("username", newUser)
 
             if (error){
-                alert(error.hint);
+                content.showAlert(error.message);
             } else if (data){
                 return data
             }
@@ -35,7 +35,7 @@ export function UserConfig(){
         check()
         .then(res => {
             if (res.length > 0){
-                alert("Username not available");
+                content.showAlert("Username not available");
             } else {
                 const save = async () => {
                     const {data, error} = await sb
@@ -45,7 +45,7 @@ export function UserConfig(){
                     .select()
 
                     if (error){
-                        alert(error.hint);
+                        content.showAlert(error.message);
                     }
                     if (data){
                         return data
@@ -78,7 +78,7 @@ export function UserConfig(){
             .select()
 
             if (error){
-                alert(error.hint);
+                content.showAlert(error.message);
             }
             if (data){
                 return data
@@ -88,7 +88,7 @@ export function UserConfig(){
         save()
         .then((res) => {
             if (res.length == 0){
-                alert("Something went wrong, make sure the old password is correct");
+                content.showAlert("Something went wrong, make sure the old password is correct");
                 return;
             }
 

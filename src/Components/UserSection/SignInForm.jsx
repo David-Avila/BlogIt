@@ -1,8 +1,10 @@
 import '../../App.css'
 import sb from "../../../Private/SupabaseClient"
-
+import { ContentContext } from '../ContentProvider';
+import { useContext } from 'react';
 
 export function SignInForm({mode, setLogged}){
+    const content = useContext(ContentContext);
 
     function handleSubmit(e){
         e.preventDefault();
@@ -18,7 +20,8 @@ export function SignInForm({mode, setLogged}){
             .select()
 
             if (error){
-                alert(error.hint);
+                content.showAlert(error.message);
+                //alert(error.hint);
             }
 
             else if (data){
@@ -29,7 +32,7 @@ export function SignInForm({mode, setLogged}){
         .then((res) => {
             
             if (res.length == 0){
-                alert("Username or password are incorrect, or acount does not exists");
+                content.showAlert("Username or password are incorrect, or acount does not exists");
                 return
             }
 

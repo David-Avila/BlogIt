@@ -3,6 +3,7 @@ import '../../App.css'
 import { NavBarItem } from '../NavBar/NavBarItem'
 
 export function AboutSection(){
+
     return (
         <div style={{textAlign: "center"}}>
             <p>BlogIt is a website in wich you can create your own blog and share it 

@@ -3,6 +3,7 @@ import { NavBar } from './Components/NavBar/NavBar'
 import { TitleSection } from './Components/TittleSection/TitleSection'
 import { ContentSection } from './Components/ContentSection'
 import { ContentProvider } from './Components/ContentProvider'
+import { AlertPrompt } from './Components/AlertPrompt/AlertPrompt'
 import { useEffect, useState } from 'react'
 
 function App() {
@@ -11,6 +12,8 @@ function App() {
 	const [currentUser, setCurrentUser] 		= useState();
 	const [currentArticle, setCurrentArticle] 	= useState();
 	const [previusMode, setPreviusMode] 		= useState("Home");
+	const [alertMsg, setAlertMsg]				= useState("");
+	const [alertShow, setAlertShow]				= useState(false);
 
 	const [appData, setAppData] = useState({
 		title: "BlogIt",
@@ -61,6 +64,16 @@ function App() {
 		setCurrentArticle(art);
 	}
 
+	function showAlert(msg){
+		setAlertShow(true);
+		setAlertMsg(msg);
+	}
+
+	function hideAlert(){
+		setAlertShow(false);
+		setAlertMsg("");
+	}
+
     return (
         <ContentProvider className='app' 
 		data={{
@@ -76,11 +89,13 @@ function App() {
 			setData,
 			setDefaultData,
 			setArticle,
+			showAlert,
 		}}
 		>
             <NavBar/>
 			<TitleSection />
 			<ContentSection/>
+			<AlertPrompt msg={alertMsg} enabled={alertShow} disable={hideAlert} />
         </ContentProvider>
     )
 }

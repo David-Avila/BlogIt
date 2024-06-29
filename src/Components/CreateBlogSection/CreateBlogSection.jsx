@@ -33,7 +33,7 @@ export function CreateBlogSection(){
                 .eq('blog_id', content.currentBlog.blog_id)
 
                 if (error){
-                    alert(error.hint);
+                    content.showAlert(error.message);
                 }
             }
 
@@ -62,7 +62,7 @@ export function CreateBlogSection(){
                 .eq("title", newBlog.title)
 
             if (error){
-                alert(error);
+                content.showAlert(error.message);
             }
 
             if (data){
@@ -87,7 +87,7 @@ export function CreateBlogSection(){
                         })
 
                     if (error){
-                        alert(error);
+                        content.showAlert(error.message);
                     }
                 }
 
@@ -98,7 +98,7 @@ export function CreateBlogSection(){
 
             }
             else {
-                alert("Blog already exists");
+                content.showAlert("Blog already exists");
             }
         })
     }
