@@ -6,8 +6,8 @@ export function BlogPreview({data, owner, deleteBlog}){
     const content = useContext(ContentContext);
 
     function openBlog() {
-        content.setMode("Blog");
         content.setBlog(data);
+        content.setMode("Blog");
     }
 
     function editBlog(blog){
@@ -26,7 +26,8 @@ export function BlogPreview({data, owner, deleteBlog}){
                 <button onClick={openBlog}>Open</button>
 
                 {owner === data.author 
-                && <>
+                && 
+				<>
                     <button 
                         onClick={() => {deleteBlog(data.blog_id)}}
                         className='danger'>Delete</button>

@@ -45,6 +45,7 @@ function App() {
 			setDefaultData();
 		} else if (mode != "Blog" && mode != "Article" && mode != "Create Article" && mode != "Create Blog"){
 			setBlog(null);
+			setArticle(null);
 		}
 		setDisplayMode(mode);
 	}

@@ -39,8 +39,8 @@ export function ArticleViewer(){
     }, [])
 
     function goBack(){
-        content.setArticle(null);
         content.setMode(content.previusMode);
+        content.setArticle(null);
     }
 
     return(
